@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Self-Driving Car Road Simulator. Test sensors, software packages, and moral frameworks in dangerous driving situations.">
+    <title>Self-Driving Car Moral & Ethical Simulator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-icon"></div>
+            <h1>ANTIGRAVITY AUTONOME</h1>
+        </div>
+        <div class="status-badge" id="status-badge">Autonomous Active</div>
+    </header>
+
+    <main class="app-container">
+        <!-- Left Column: Configurator Panel -->
+        <section class="panel" aria-label="System Configurator">
+            <div class="panel-header">
+                <h2 class="panel-title">SYSTEM UPGRADES</h2>
+            </div>
+            <div class="panel-body">
+                <!-- Hardware / Sensors -->
+                <div class="config-group">
+                    <span class="config-group-title">Hardware / Sensors</span>
+                    
+                    <!-- Camera Switch -->
+                    <div class="control-item" data-type="camera">
+                        <div class="control-info">
+                            <span class="control-label">Visual Cameras</span>
+                            <span class="control-desc">Object detection (Low visibility degradation)</span>
+                        </div>
+                        <label class="switch" for="sensor-camera-chk">
+                            <input type="checkbox" id="sensor-camera-chk" class="sensor-toggle" data-sensor="camera">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Radar Switch -->
+                    <div class="control-item" data-type="radar">
+                        <div class="control-info">
+                            <span class="control-label">Radar (Radio waves)</span>
+                            <span class="control-desc">Fog penetration, low object classification</span>
+                        </div>
+                        <label class="switch" for="sensor-radar-chk">
+                            <input type="checkbox" id="sensor-radar-chk" class="sensor-toggle" data-sensor="radar">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- LiDAR Switch -->
+                    <div class="control-item" data-type="lidar">
+                        <div class="control-info">
+                            <span class="control-label">LiDAR (Laser scans)</span>
+                            <span class="control-desc">3D outline mapping, high range precision</span>
+                        </div>
+                        <label class="switch" for="sensor-lidar-chk">
+                            <input type="checkbox" id="sensor-lidar-chk" class="sensor-toggle" data-sensor="lidar">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Ultrasonic Switch -->
+                    <div class="control-item" data-type="ultrasonic">
+                        <div class="control-info">
+                            <span class="control-label">Ultrasonic sensors</span>
+                            <span class="control-desc">Close-range blind spot monitoring</span>
+                        </div>
+                        <label class="switch" for="sensor-ultrasonic-chk">
+                            <input type="checkbox" id="sensor-ultrasonic-chk" class="sensor-toggle" data-sensor="ultrasonic">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Sensor Color Legend -->
+                    <div class="legend-panel">
+                        <div class="legend-item"><span class="legend-dot camera"></span> Camera</div>
+                        <div class="legend-item"><span class="legend-dot radar"></span> Radar</div>
+                        <div class="legend-item"><span class="legend-dot lidar"></span> LiDAR</div>
+                        <div class="legend-item"><span class="legend-dot ultrasonic"></span> Ultrasonic</div>
+                    </div>
+                </div>
+
+                <!-- Software suites -->
+                <div class="config-group">
+                    <span class="config-group-title">AI & Software Suites</span>
+                    
+                    <!-- Collision Avoidance (Swerving) -->
+                    <div class="control-item">
+                        <div class="control-info">
+                            <span class="control-label">Collision Avoidance</span>
+                            <span class="control-desc">Enables active swerving & lane evasion</span>
+                        </div>
+                        <label class="switch" for="system-avoidance-chk">
+                            <input type="checkbox" id="system-avoidance-chk" class="system-toggle" data-system="collisionAvoidance">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Weather Adaptation -->
+                    <div class="control-item">
+                        <div class="control-info">
+                            <span class="control-label">Weather Adaptation</span>
+                            <span class="control-desc">Friction-adjusted braking & speed control</span>
+                        </div>
+                        <label class="switch" for="system-weather-chk">
+                            <input type="checkbox" id="system-weather-chk" class="system-toggle" data-system="weatherAdaptation">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+
+                    <!-- Pedestrian Classification -->
+                    <div class="control-item">
+                        <div class="control-info">
+                            <span class="control-label">Pedestrian Detection</span>
+                            <span class="control-desc">Classifies humans to calculate collision cost</span>
+                        </div>
+                        <label class="switch" for="system-pedestrian-chk">
+                            <input type="checkbox" id="system-pedestrian-chk" class="system-toggle" data-system="pedestrianDetection">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Moral Framework -->
+                <div class="config-group">
+                    <span class="config-group-title">Moral Directive (AI Ethics)</span>
+                    <div class="moral-group">
+                        
+                        <label class="moral-item" for="moral-none">
+                            <input type="radio" name="moral" id="moral-none" value="none" checked>
+                            <div class="moral-tile">
+                                <span class="moral-title-text">UNPROGRAMMED / DEFAULT</span>
+                                <span class="moral-desc-text">Simple braking. Frozen decision parameters if impact is inevitable.</span>
+                            </div>
+                        </label>
+
+                        <label class="moral-item" for="moral-egoism">
+                            <input type="radio" name="moral" id="moral-egoism" value="egoism">
+                            <div class="moral-tile">
+                                <span class="moral-title-text">EGOISM (SELF-PRESERVATION)</span>
+                                <span class="moral-desc-text">Prioritize occupant safety above all. Swerve into crowd to avoid high-mass obstacles.</span>
+                            </div>
+                        </label>
+
+                        <label class="moral-item" for="moral-utilitarian">
+                            <input type="radio" name="moral" id="moral-utilitarian" value="utilitarian">
+                            <div class="moral-tile">
+                                <span class="moral-title-text">UTILITARIAN (MINIMUM HARM)</span>
+                                <span class="moral-desc-text">Calculate path that minimizes life losses. Sacrifice cabin occupant if saving group.</span>
+                            </div>
+                        </label>
+
+                        <label class="moral-item" for="moral-deontology">
+                            <input type="radio" name="moral" id="moral-deontology" value="deontology">
+                            <div class="moral-tile">
+                                <span class="moral-title-text">DEONTOLOGY (RULES-BASED)</span>
+                                <span class="moral-desc-text">Strict adherence to lane dividers and laws. Avoid illegal swerves even if collision occurs.</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Center Column: Canvas view & Telemetry -->
+        <section class="simulator-panel" aria-label="Road Simulator Screen">
+            <!-- Simulated viewport -->
+            <div class="canvas-container" id="canvas-container">
+                <canvas id="sim-canvas"></canvas>
+            </div>
+
+            <!-- Telemetry Readout Grid -->
+            <div class="telemetry-row">
+                <div class="telemetry-card">
+                    <span class="telemetry-label">Speed</span>
+                    <span class="telemetry-value" id="telemetry-speed">0<span class="telemetry-unit"> km/h</span></span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-label">Brake Force</span>
+                    <span class="telemetry-value" id="telemetry-brake">0<span class="telemetry-unit">%</span></span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-label">G-Force</span>
+                    <span class="telemetry-value" id="telemetry-gforce">0.00<span class="telemetry-unit"> G</span></span>
+                </div>
+                <div class="telemetry-card">
+                    <span class="telemetry-label">Threat Level</span>
+                    <span class="status-badge" id="threat-badge">Low</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Right Column: Scenarios & AI thoughts -->
+        <section class="panel" aria-label="Simulation Logs and Controls">
+            <div class="panel-header">
+                <h2 class="panel-title">CONTROL & LOGS</h2>
+            </div>
+            <div class="panel-body">
+                
+                <!-- Scenario List -->
+                <div class="config-group">
+                    <span class="config-group-title">Drive Scenarios</span>
+                    <div class="scenario-list">
+                        <button class="scenario-btn active" data-scenario="crossing" aria-label="Select Scenario: Foggy Crossing">
+                            <span class="scenario-name">Scenario 1: Foggy Crossing</span>
+                            <span class="scenario-desc">Sudden pedestrian crossing in heavy fog.</span>
+                        </button>
+                        <button class="scenario-btn" data-scenario="dilemma" aria-label="Select Scenario: The Dilemma">
+                            <span class="scenario-name">Scenario 2: The Ethical Dilemma</span>
+                            <span class="scenario-desc">Trolley problem: swerve left, swerve right, or crash.</span>
+                        </button>
+                        <button class="scenario-btn" data-scenario="ice" aria-label="Select Scenario: Wet Aquaplaning">
+                            <span class="scenario-name">Scenario 3: Wet Aquaplaning</span>
+                            <span class="scenario-desc">Sudden debris ahead on wet, slippery road.</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Simulation Action Controls -->
+                <div class="config-group">
+                    <span class="config-group-title">Engine Control</span>
+                    <div class="dashboard-actions">
+                        <button class="control-btn" id="btn-pause">PAUSE</button>
+                        <button class="control-btn secondary" id="btn-reset">RESET</button>
+                    </div>
+                </div>
+
+                <!-- AI Thought Log Terminal -->
+                <div class="config-group" style="flex: 1; min-height: 200px;">
+                    <span class="config-group-title">AI Logic & Calculations</span>
+                    <div class="terminal-container">
+                        <div class="terminal-header-mini">
+                            <span>COGNITIVE LOG</span>
+                            <span>NODE_04_ONLINE</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-body">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Simulation dependencies -->
+    <script src="simulation.js"></script>
+    <script src="ai.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
